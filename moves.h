@@ -36,13 +36,13 @@ inline move toMove(int n) {
 
 // should i separate class so logic (winning/losing) is in one place only (encapsulation?) - later 
 
-    bool beats[5][5] = {
-        { false, false, true,  true,  false },  // Rock beats Scissors, Lizard
-        { true,  false, false, false, true  },  // Paper beats Rock, Spock
-        { false, true,  false, true,  false },  // Scissors beats Paper, Lizard
-        { false, true,  false, false, true  },  // Lizard beats Paper, Spock
-        { true,  false, true,  false, false },  // Spock beats Rock, Scissors
-    };
+    inline bool beats[5][5] = {
+    { false, false, true,  true,  false },  // Rock beats Scissors, Lizard
+    { true,  false, false, false, true  },  // Paper beats Rock, Spock
+    { false, true,  false, true,  false },  // Scissors beats Paper, Lizard
+    { false, true,  false, false, true  },  // Lizard beats Paper, Spock
+    { true,  false, true,  false, false },  // Spock beats Rock, Scissors
+};
     
     inline int result(move a, move b){
     if(a == b)
@@ -54,16 +54,16 @@ inline move toMove(int n) {
     return -1;
     }
 
-    std::string reason(move winner, move loser) {
-        if (winner == rock     && loser == scissors) return "Rock crushes Scissors";
-        if (winner == rock     && loser == lizard)   return "Rock crushes Lizard";
-        if (winner == paper    && loser == rock)     return "Paper covers Rock";
-        if (winner == paper    && loser == spock)    return "Paper disproves Spock";
-        if (winner == scissors && loser == paper)    return "Scissors cuts Paper";
-        if (winner == scissors && loser == lizard)   return "Scissors decapitates Lizard";
-        if (winner == lizard   && loser == paper)    return "Lizard eats Paper";
-        if (winner == lizard   && loser == spock)    return "Lizard poisons Spock";
-        if (winner == spock    && loser == rock)     return "Spock vaporizes Rock";
-        if (winner == spock    && loser == scissors) return "Spock smashes Scissors";
-        return "Draw";
-    }
+    inline std::string reason(move winner, move loser) {
+    if (winner == rock     && loser == scissors) return "Rock crushes Scissors";
+    if (winner == rock     && loser == lizard)   return "Rock crushes Lizard";
+    if (winner == paper    && loser == rock)     return "Paper covers Rock";
+    if (winner == paper    && loser == spock)    return "Paper disproves Spock";
+    if (winner == scissors && loser == paper)    return "Scissors cuts Paper";
+    if (winner == scissors && loser == lizard)   return "Scissors decapitates Lizard";
+    if (winner == lizard   && loser == paper)    return "Lizard eats Paper";
+    if (winner == lizard   && loser == spock)    return "Lizard poisons Spock";
+    if (winner == spock    && loser == rock)     return "Spock vaporizes Rock";
+    if (winner == spock    && loser == scissors) return "Spock smashes Scissors";
+    return "Draw";
+}
